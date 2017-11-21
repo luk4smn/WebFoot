@@ -1,8 +1,10 @@
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-  <a class="navbar-brand" href="home">WebFoot</a>
-  <a class="navbar-brand" href="#" id="toggleNavColor">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+  <a class="navbar-brand" href="home">WebFoot
     <i class="fa fa-fw fa-soccer-ball-o"></i>
+  </a>
+  <a class="navbar-brand" href="#" id="toggleNavColor">
+    <i class="fa fa-fw fa-ra"></i>
   </a>
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
