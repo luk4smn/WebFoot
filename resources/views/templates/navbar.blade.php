@@ -1,6 +1,6 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
-  <a class="navbar-brand" href="home">WebFoot
+  <a class="navbar-brand" href="/">WebFoot
     <i class="fa fa-fw fa-soccer-ball-o"></i>
   </a>
   <a class="navbar-brand" href="#" id="toggleNavColor">
