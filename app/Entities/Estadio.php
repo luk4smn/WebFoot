@@ -1,20 +1,22 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lucas
- * Date: 26/11/17
- * Time: 00:45
- */
+
 
 namespace App\Entities;
 
 
 class Estadio
 {
+    protected $table = "estadios";
+
     protected $fillable = [
         'nome',
         'time_id',
         'capacidade',
         'valor_ingresso',
     ];
+
+    public function time(){
+        return $this->hasOne(Time::class, "time_id");
+    }
+
 }

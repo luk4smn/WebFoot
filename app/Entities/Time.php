@@ -8,10 +8,19 @@ class Time extends Entity
     protected $table = "times";
 
     protected $fillable = [
-      'nome',
-      'id_user' ,
-      'id_estadio'
+        'nome',
+        'user_id' ,
+        'estadio_id',
+        'campeonato_id',
+        'numero_torcedores',
+        'caixa'
     ];
 
+    public function jogadores(){
+        return $this->hasMany(Jogador::class, "time_id");
+    }
 
+    public function campeonato(){
+        return $this->hasOne(Campeonato::class, "campeonato_id");
+    }
 }
