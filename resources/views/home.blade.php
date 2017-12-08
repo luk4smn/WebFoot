@@ -6,9 +6,9 @@
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="#">Dashboard</a>
+                    <a href="/">Início</a>
                 </li>
-                <li class="breadcrumb-item active">My Dashboard</li>
+                <li class="breadcrumb-item active">Estatísticas</li>
             </ol>
             <!-- Icon Cards-->
             <div class="row">
@@ -18,7 +18,7 @@
                             <div class="card-body-icon">
                                 <i class="fa fa-fw fa-comments"></i>
                             </div>
-                            <div class="mr-5">26 New Messages!</div>
+                            <div class="mr-5">Mensagens</div>
                         </div>
                         <a class="card-footer text-white clearfix small z-1" href="#">
                             <span class="float-left">View Details</span>
@@ -34,7 +34,7 @@
                             <div class="card-body-icon">
                                 <i class="fa fa-fw fa-list"></i>
                             </div>
-                            <div class="mr-5">11 New Tasks!</div>
+                            <div class="mr-5">Próximos Jogos</div>
                         </div>
                         <a class="card-footer text-white clearfix small z-1" href="#">
                             <span class="float-left">View Details</span>
@@ -50,7 +50,7 @@
                             <div class="card-body-icon">
                                 <i class="fa fa-fw fa-shopping-cart"></i>
                             </div>
-                            <div class="mr-5">123 New Orders!</div>
+                            <div class="mr-5">Comprar Jogadores</div>
                         </div>
                         <a class="card-footer text-white clearfix small z-1" href="#">
                             <span class="float-left">View Details</span>
@@ -66,7 +66,7 @@
                             <div class="card-body-icon">
                                 <i class="fa fa-fw fa-support"></i>
                             </div>
-                            <div class="mr-5">13 New Tickets!</div>
+                            <div class="mr-5">Meu Estádio</div>
                         </div>
                         <a class="card-footer text-white clearfix small z-1" href="#">
                             <span class="float-left">View Details</span>
@@ -80,7 +80,7 @@
             <!-- Area Chart Example-->
             <div class="card mb-3">
                 <div class="card-header">
-                    <i class="fa fa-area-chart"></i> Area Chart Example</div>
+                    <i class="fa fa-area-chart"></i> Renda</div>
                 <div class="card-body">
                     <canvas id="myAreaChart" width="100%" height="30"></canvas>
                 </div>
