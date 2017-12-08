@@ -37,5 +37,7 @@ class HomeController extends Controller
         auth()->user()->time_id = $request->radio['time_id'];
 
         auth()->user()->save();
+
+        return redirect()->to('/');
     }
 }
