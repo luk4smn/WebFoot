@@ -52,7 +52,7 @@
                                         <td>{{$time->numero_torcedores}}k</td>
                                         <td>{{$time->campeonato->nome}}</td>
                                         <td>R$ {{$time->caixa}}</td>
-                                        <td><input type="radio" name="radio[]" value="<?php echo $time->id; ?>"></td>
+                                        <td><input type="radio" name="radio[time_id]" value="{{$time->id}}"></td>
                                     </tr>
                                     @endforeach
                                     </tbody>
