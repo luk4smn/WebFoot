@@ -18,7 +18,7 @@ class CreateJogadorTable extends Migration
             $table->string('nome');
             $table->integer('idade');
             $table->string('posicao');
-            $table->integer('time_id');
+            $table->integer('time_id')->nullable();
             $table->decimal('salario');
             $table->decimal('passe');
             $table->integer('atk_rate');
