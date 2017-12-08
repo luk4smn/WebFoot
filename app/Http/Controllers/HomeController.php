@@ -2,27 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Time;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
+
+        if(auth()->user()->time_id == null){
+            $times = Time::get();
+
+            return view('time.selectTeam', compact('times'));
+        }
+
         return view('home');
+    }
+
+    public function setMyTeam(Time $team){
+        dd($team);
     }
 }
