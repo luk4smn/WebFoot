@@ -4,7 +4,7 @@
 namespace App\Entities;
 
 
-class Estadio
+class Estadio extends Entity
 {
     protected $table = "estadios";
 
@@ -15,8 +15,5 @@ class Estadio
         'valor_ingresso',
     ];
 
-    public function time(){
-        return $this->hasOne(Time::class, "time_id");
-    }
 
 }
