@@ -16,7 +16,7 @@ class CreateTimeTable extends Migration
         Schema::create('times', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
-            $table->integer('user_id');
+            $table->integer('user_id')-> nullable();
             $table->integer('estadio_id');
             $table->integer('campeonato_id');
             $table->integer('numero_torcedores');
