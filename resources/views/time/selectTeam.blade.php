@@ -33,6 +33,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                     <tr>
+                                        <th></th>
                                         <th>Nome</th>
                                         <th>Estádio</th>
                                         <th>Torcedores</th>
@@ -42,14 +43,16 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($time as $key => $time)
+                                    @foreach($times as $key => $time)
                                     <tr>
+                                        <td><a class="navbar-brand" href="{{ URL::asset('/') }}"><img
+                                                        src="{{ URL::asset($time->escudo) }}" alt=""></a></td>
                                         <td>{{$time->nome}}</td>
                                         <td>{{$time->estadio->nome}}</td>
                                         <td>{{$time->numero_torcedores}}k</td>
                                         <td>{{$time->campeonato->nome}}</td>
                                         <td>R$ {{$time->caixa}}</td>
-                                        <td><input type="radio" name="radio[]" value="<?php echo 1; ?>"></td>
+                                        <td><input type="radio" name="radio[]" value="<?php echo $time->id; ?>"></td>
                                     </tr>
                                     @endforeach
                                     </tbody>
