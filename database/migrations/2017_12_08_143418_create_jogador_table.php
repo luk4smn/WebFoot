@@ -13,7 +13,7 @@ class CreateJogadorTable extends Migration
      */
     public function up()
     {
-        Schema::create('jogador', function (Blueprint $table) {
+        Schema::create('jogadores', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
             $table->integer('idade');
@@ -40,7 +40,7 @@ class CreateJogadorTable extends Migration
      */
     public function down()
     {
-        Schema::table('jogador', function (Blueprint $table) {
+        Schema::table('jogadores', function (Blueprint $table) {
             //
         });
     }

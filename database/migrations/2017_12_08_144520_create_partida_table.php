@@ -13,7 +13,7 @@ class CreatePartidaTable extends Migration
      */
     public function up()
     {
-        Schema::create('partida', function (Blueprint $table) {
+        Schema::create('partidas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('campeonato_id');
             $table->integer('time_mandante_id');
@@ -43,7 +43,7 @@ class CreatePartidaTable extends Migration
      */
     public function down()
     {
-        Schema::table('partida', function (Blueprint $table) {
+        Schema::table('partidas', function (Blueprint $table) {
             //
         });
     }

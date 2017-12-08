@@ -13,7 +13,7 @@ class CreateTimeTable extends Migration
      */
     public function up()
     {
-        Schema::create('time', function (Blueprint $table) {
+        Schema::create('times', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
             $table->integer('user_id');
@@ -44,7 +44,7 @@ class CreateTimeTable extends Migration
      */
     public function down()
     {
-        Schema::table('time', function (Blueprint $table) {
+        Schema::table('times', function (Blueprint $table) {
             //
         });
     }
