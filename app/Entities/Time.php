@@ -23,4 +23,8 @@ class Time extends Entity
     public function campeonato(){
         return $this->hasOne(Campeonato::class, "campeonato_id");
     }
+
+    public function estadio(){
+        return $this->hasOne(Estadio::class, "estadio_id");
+    }
 }
