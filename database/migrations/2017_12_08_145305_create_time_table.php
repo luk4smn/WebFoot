@@ -21,6 +21,7 @@ class CreateTimeTable extends Migration
             $table->integer('campeonato_id');
             $table->integer('numero_torcedores');
             $table->decimal('caixa');
+            $table->string('escudo');
 
             $table->index('user_id');
             $table->index('estadio_id');

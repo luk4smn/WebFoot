@@ -13,7 +13,8 @@ class Time extends Entity
         'estadio_id',
         'campeonato_id',
         'numero_torcedores',
-        'caixa'
+        'caixa',
+        'escudo'
     ];
 
     public function jogadores(){
