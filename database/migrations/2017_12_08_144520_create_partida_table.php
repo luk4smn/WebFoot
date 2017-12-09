@@ -18,9 +18,8 @@ class CreatePartidaTable extends Migration
             $table->integer('campeonato_id');
             $table->integer('time_mandante_id');
             $table->integer('time_visitante_id');
-            $table->integer('placar');
-            $table->integer('premio_empate');
-            $table->integer('num_partidas');
+            $table->integer('placar_mandante')->nullable();
+            $table->integer('placar_visitante')->nullable();
 
             $table->index('campeonato_id');
             $table->index('time_mandante_id');
