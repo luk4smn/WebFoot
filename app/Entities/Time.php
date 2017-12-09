@@ -28,4 +28,8 @@ class Time extends Entity
     public function estadio(){
         return $this->belongsTo(Estadio::class, "estadio_id",'id');
     }
+    public function classificacao(){
+        return $this->hasOne(Classificacao::class, "time_id");
+    }
+
 }
