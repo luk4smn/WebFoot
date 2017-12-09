@@ -22,7 +22,7 @@ class Classificacao extends Entity
     }
 
     public function time(){
-        return $this->hasOne(Time::class, "time_id");
+        return $this->hasOne(Time::class, 'id','time_id');
     }
 
 }
