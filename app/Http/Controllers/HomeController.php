@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Partida;
 use App\Entities\Time;
 use App\User;
 use foo\bar;
@@ -38,6 +39,14 @@ class HomeController extends Controller
 
         auth()->user()->save();
 
+        $sorteioDoCampeonato = new Partida();
+
+        $sorteioDoCampeonato->setSorteio();
+
         return redirect()->to('/');
     }
+
+
+
+
 }
