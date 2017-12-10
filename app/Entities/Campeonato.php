@@ -12,7 +12,7 @@ class Campeonato extends Entity
         'premio' ,
         'premio_vitoria',
         'premio_empate',
-        'num_partidas'
+        'num_rodadas'
     ];
 
     public function times(){

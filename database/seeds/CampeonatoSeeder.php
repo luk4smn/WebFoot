@@ -14,7 +14,7 @@ class CampeonatoSeeder extends Seeder
             'premio' => 100000,
             'premio_vitoria' => 1000,
             'premio_empate' => 500,
-            'num_partidas'=> 38,
+            'num_rodadas'=> 38,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);

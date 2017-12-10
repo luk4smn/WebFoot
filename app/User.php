@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Entities\Time;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -21,4 +22,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function time(){
+        return $this->hasOne(Time::class, 'id','time_id');
+    }
 }

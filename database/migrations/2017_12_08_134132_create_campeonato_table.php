@@ -19,7 +19,7 @@ class CreateCampeonatoTable extends Migration
             $table->decimal('premio');
             $table->decimal('premio_vitoria');
             $table->decimal('premio_empate');
-            $table->integer('num_partidas');
+            $table->integer('num_rodadas');
 
             $table->timestamps();
             $table->softDeletes();
