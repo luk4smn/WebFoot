@@ -1,6 +1,7 @@
 @extends('templates.template')
 
 @section('content')
+   <br>
     <div class="content-wrapper">
         <div class="container-fluid">
             <!-- Breadcrumbs-->
@@ -78,11 +79,46 @@
                 </div>
             </div>
             <!-- Area Chart Example-->
-            <input type="hidden" id="vitorias" value="{{auth()->user()->time->classificacao->vitorias}}">
-            <input type="hidden" id="empates" value="{{auth()->user()->time->classificacao->empates}}">
-            <input type="hidden" id="derrotas" value="{{auth()->user()->time->classificacao->derrotas}}">
             <div class="row">
                 <div class="col-lg-12">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <i class="fa fa-table"></i> Proxima Partida</div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-dark" width="100%" cellspacing="0">
+                                    <div align="center">Estádio: {{$mandante->estadio->nome}}</div>
+                                    <thead>
+                                    <tr align="center">
+                                        <th>Casa</th>
+                                        <th></th>
+                                        <th>X</th>
+                                        <th></th>
+                                        <th>Fora</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr align="center">
+                                        <td align="center">{{$mandante->nome}}</td>
+                                        <td><a class="navbar-brand" href="{{ URL::asset('/') }}"><img
+                                                        src="{{ URL::asset($mandante->escudo) }}" alt=""></a></td>
+                                        <td></td>
+                                        <td><a class="navbar-brand" href="{{ URL::asset('/') }}"><img
+                                                        src="{{ URL::asset($visitante->escudo) }}" alt=""></a></td>
+                                        <td>{{$visitante->nome}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary">Jogar <i
+                                            class="fa fa-fw fa-soccer-ball-o position-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="hidden" id="vitorias" value="{{auth()->user()->time->classificacao->vitorias}}">
+                    <input type="hidden" id="empates" value="{{auth()->user()->time->classificacao->empates}}">
+                    <input type="hidden" id="derrotas" value="{{auth()->user()->time->classificacao->derrotas}}">
                     <!-- Example Bar Chart Card-->
                     <div class="card mb-3">
                         <div class="card-header">
@@ -108,40 +144,7 @@
                     </div>
 
                     <!-- Example DataTables Card-->
-                    <div class="card mb-3">
-                        <div class="card-header">
-                            <i class="fa fa-table"></i> Data Table Example</div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    {{--@foreach($times as $key => $time)--}}
-                                        {{--<tr>--}}
-                                            {{--<td><a class="navbar-brand" href="{{ URL::asset('/') }}"><img--}}
-                                                            {{--src="{{ URL::asset($time->escudo) }}" alt=""></a></td>--}}
-                                            {{--<td>{{$time->nome}}</td>--}}
-                                            {{--<td>{{$time->estadio->nome}}</td>--}}
-                                            {{--<td>{{$time->numero_torcedores}}k</td>--}}
-                                            {{--<td>{{$time->campeonato->nome}}</td>--}}
-                                            {{--<td>R$ {{$time->caixa}}</td>--}}
-                                            {{--<td><input type="radio" name="radio[time_id]" value="{{$time->id}}"></td>--}}
-                                        {{--</tr>--}}
-                                    {{--@endforeach--}}
-                                </table>
-                            </div>
-                        </div>
-                        <div class="card-footer small text-muted">Atualizado em {{date('d/m/Y')}}</div>
-                    </div>
+
                 </div>
             </div>
         </div>
