@@ -39,10 +39,6 @@ class HomeController extends Controller
 
         auth()->user()->save();
 
-        $sorteioDoCampeonato = new Partida();
-
-        $sorteioDoCampeonato->setSorteio();
-
         return redirect()->to('/');
     }
 

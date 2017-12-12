@@ -20,10 +20,10 @@ class Jogador extends Entity
     ];
 
     const
-        GOLEIRO = 1,
-        DEFENSOR = 2,
-        MEIA = 3,
-        ATACANTE = 4;
+        GOLEIRO = "GOL",
+        DEFENSOR = "DEF",
+        MEIA = "MEI",
+        ATACANTE = "ATK";
 
     public function time(){
         return $this->hasOne(Time::class, "time_id");

@@ -32,4 +32,26 @@ class Time extends Entity
         return $this->hasOne(Classificacao::class, "time_id");
     }
 
+    public function getSalariosJogadores(){
+        $elenco = $this->jogadores;
+        $soma= 0;
+
+        foreach ($elenco as $key => $jogador){
+            $soma += $jogador->salario;
+        }
+
+        return $soma;
+    }
+
+
+    public function setBallance(){
+        $despesas = $this->getSalariosJogadores();
+
+        $caixa = $this->caixa;
+
+        $ballance = $caixa - $despesas;
+
+        return $ballance;
+    }
+
 }

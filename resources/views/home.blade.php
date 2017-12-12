@@ -96,10 +96,10 @@
                                     <div class="h4 mb-0 text-primary">R$ {{\App\Support\Convert::decimalToMoney(auth()->user()->time->caixa)}}</div>
                                     <div class="small text-muted">Dinheiro em Caixa</div>
                                     <hr>
-                                    <div class="h4 mb-0 text-warning">$18,474</div>
+                                    <div class="h4 mb-0 text-warning">R$ {{\App\Support\Convert::decimalToMoney(auth()->user()->time->getSalariosJogadores())}}</div>
                                     <div class="small text-muted">Despesas com Salários</div>
                                     <hr>
-                                    <div class="h4 mb-0 text-success">$16,219</div>
+                                    <div class="h4 mb-0 text-success">R$ {{\App\Support\Convert::decimalToMoney(auth()->user()->time->setBallance())}}</div>
                                     <div class="small text-muted">Balanço Financeiro</div>
                                 </div>
                             </div>

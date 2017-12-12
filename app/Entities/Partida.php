@@ -82,7 +82,6 @@ class Partida extends Entity
                 'campeonato_id' => 1,
                 'time_mandante_id' => $partida->time_visitante_id,
                 'time_visitante_id' => $partida->time_mandante_id,
-                'num_partidas'
             ]);
         }
 
