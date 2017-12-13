@@ -4,15 +4,15 @@
 
     {{ Form::open(array('url' => '/team/selected' , 'class'=>'form-horizontal')) }}
 
-    @if (Session::has('mensagem'))
-        <div class="alert alert-danger">{{ Session::get('mensagem') }}</div>
-    @endif
+    {{--@if (Session::has('mensagem'))--}}
+        {{--<div class="alert alert-danger">{{ Session::get('mensagem') }}</div>--}}
+    {{--@endif--}}
 
-    @if($errors->count() > 0)
-        <div class="alert alert-danger">
-            {{ HTML::ul($errors->all()) }}
-        </div>
-    @endif
+    {{--@if($errors->count() > 0)--}}
+        {{--<div class="alert alert-danger">--}}
+            {{--{{ HTML::ul($errors->all()) }}--}}
+        {{--</div>--}}
+    {{--@endif--}}
 
     <div class="content-wrapper">
         <div class="container-fluid">

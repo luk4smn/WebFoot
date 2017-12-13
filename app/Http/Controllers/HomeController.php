@@ -27,9 +27,8 @@ class HomeController extends Controller
         }
 
         $proximo_jogo = Partida::where('time_mandante_id',auth()->user()->time_id)
-            ->orWhereRaw('time_visitante_id',auth()->user()->time_id)
-            ->where('placar_mandante',null)
-            ->where('placar_visitante', null)
+            ->orWhere('time_visitante_id',auth()->user()->time_id)
+            ->Where('placar_mandante',null)
             ->orderBy('partidas.id')
             ->first();
 
@@ -41,7 +40,7 @@ class HomeController extends Controller
 
     public function setMyTeam(Request $request){
 
-        if(sizeof($request->radio) != 1){
+        if(sizeof($request->radio) != 1 || isset($request->radio['time_id'])){
             return redirect()->back()->withErrors('Não é permitido selecionar mais de um time');
         };
 
