@@ -32,7 +32,7 @@
         </a>
         <ul class="sidenav-second-level collapse" id="collapseMulti">
           <li>
-            <a href="/jogadores"><i class="fa fa-fw fa-user-circle"></i><span class="nav-link-text">Jogadores</span></a>
+            <a href="{{route('meus.jogadores')}}"><i class="fa fa-fw fa-user-circle"></i><span class="nav-link-text">Jogadores</span></a>
           </li>
           <li>
             <a href="/estadio"><i class="fa fa-bank"></i><span class="nav-link-text">Estádio</span></a>

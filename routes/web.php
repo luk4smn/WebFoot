@@ -20,3 +20,7 @@ Route::group(['prefix' => 'classificacao'], function () {
 Route::group(['prefix' => 'calendario'], function () {
     Route::get('/', 'PartidasController@index')->name('calendario');
 });
+
+    Route::get('/meus-jogadores', 'TimesController@getElenco')->name('meus.jogadores');
+    Route::get('/meus-jogadores/{id}/dispensar', 'TimesController@dispensar')->name('dispensar.jogador');
+
