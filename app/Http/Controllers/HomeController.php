@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Entities\Partida;
 use App\Entities\Time;
-use App\User;
-use foo\bar;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,9 +14,7 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-
-    public function index()
-    {
+    public function index(){
 
         if(auth()->user()->time_id == null){
             $times = Time::get();
@@ -41,7 +37,7 @@ class HomeController extends Controller
     public function setMyTeam(Request $request){
 
         if(sizeof($request->radio) != 1){
-            return redirect()->back()->withErrors('Não é permitido selecionar mais de um time');
+            return redirect()->back()->withErrors('Selecione um (e somente um) time');
         };
 
         auth()->user()->time_id = $request->radio['time_id'];

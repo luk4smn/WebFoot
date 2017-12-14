@@ -20,6 +20,14 @@ class Partida extends Entity
         return $campeonato = Campeonato::get()->toArray();
     }
 
+    public function mandante(){
+        return $this->hasOne(Time::class, 'id',"time_mandante_id");
+    }
+
+    public function visitante(){
+        return $this->hasOne(Time::class, 'id',"time_visitante_id");
+    }
+
     public function getTimes(){
         return $times = Time::pluck('id')->toArray();
     }

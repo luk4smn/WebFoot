@@ -43,13 +43,13 @@
         </ul>
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{route('calendario')}}">
           <i class="fa fa-fw fa-table"></i>
           <span class="nav-link-text">Calendário</span>
         </a>
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{route('classificacao')}}">
           <i class="fa fa-fw fa-sitemap"></i>
           <span class="nav-link-text">Classificação</span>
         </a>

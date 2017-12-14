@@ -43,7 +43,6 @@ class Time extends Entity
         return $soma;
     }
 
-
     public function setBallance(){
         $despesas = $this->getSalariosJogadores();
 
@@ -52,6 +51,42 @@ class Time extends Entity
         $ballance = $caixa - $despesas;
 
         return $ballance;
+    }
+
+    public function getScoredGoals(){
+        $scored = 0;
+
+        $partidas_mandane = Partida::where('time_mandante_id',$this->id)->get();
+
+        foreach ($partidas_mandane as $key => $partida){
+            $scored += $partida->placar_mandante;
+        }
+
+        $partidas_visitante = Partida::where('time_visitante_id',$this->id)->get();
+
+        foreach ($partidas_visitante as $key => $partida){
+            $scored += $partida->placar_visitante;
+        }
+
+        return $scored;
+    }
+
+    public function getConceivedGoals(){
+        $goals = 0;
+
+        $partidas_mandane = Partida::where('time_mandante_id',$this->id)->get();
+
+        foreach ($partidas_mandane as $key => $partida){
+            $goals += $partida->placar_visitante;                            //gols q o visitante fez em vc
+        }
+
+        $partidas_visitante = Partida::where('time_visitante_id',$this->id)->get();
+
+        foreach ($partidas_visitante as $key => $partida){
+            $goals += $partida->placar_mandante;                            //gols q o mandante fez em vc
+        }
+
+        return $goals;
     }
 
 }

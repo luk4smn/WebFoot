@@ -12,12 +12,19 @@
                 <div class="alert alert-danger">
                     {{ HTML::ul($errors->all()) }}
                 </div>
-            @endif
-            <br>
-            <!-- Breadcrumbs-->
+        @endif
+        <br>
+        <!-- Breadcrumbs-->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{route('calendario')}}">Proximos Jogos</a></li>
+                <li class="breadcrumb-item"><a href="{{route('calendario')}}">Jogos por rodada</a></li>
             </ol>
+
+                <div class="alert alert-warning alert-styled-left">
+                    <p><strong>Informações sobre o Campeonato :</strong></p>
+                    <p>O campeonato consiste em 2 turnos  com 19 rodadas cada, totalizando 38 rodadas;  </p>
+                    <p>São 10 jogos por rodada, 190 jogos por turno, 380 jogos no total do campeonato;</p>
+                    <p>Cada rodada tem 10 jogos distribuidos entre 20 times, ao fim do campeonato cada time jogou 38 partidas;</p>
+                </div>
 
             <div class="row">
                 <div class="col-lg-12">
@@ -37,6 +44,7 @@
                                         <th>Placar</th>
                                         <th></th>
                                         <th>Fora</th>
+                                        <th>Estadio</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -50,6 +58,7 @@
                                             <td><a class="navbar-brand" href="{{ URL::asset('/') }}"><img
                                                             src="{{ URL::asset($partida->visitante->escudo) }}" alt=""></a></td>
                                             <td>{{$partida->visitante->nome}}</td>
+                                            <td>{{$partida->mandante->estadio->nome}}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>
