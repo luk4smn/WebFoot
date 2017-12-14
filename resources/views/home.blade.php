@@ -35,9 +35,9 @@
                             <div class="card-body-icon">
                                 <i class="fa fa-fw fa-list"></i>
                             </div>
-                            <div class="mr-5">Próximos Jogos</div>
+                            <div class="mr-5">Jogos do meu Time</div>
                         </div>
-                        <a class="card-footer text-white clearfix small z-1" href="#">
+                        <a class="card-footer text-white clearfix small z-1" href="{{route('minhas.proximas.partidas')}}">
                             <span class="float-left">View Details</span>
                             <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -110,8 +110,8 @@
                                 </table>
                             </div>
                             <div class="text-right">
-                                <button type="submit" class="btn btn-primary">Jogar <i
-                                            class="fa fa-fw fa-soccer-ball-o position-right"></i></button>
+                                <a   href="{{route('jogar',['partida_id' => $proximo_jogo->id])}}"  class="btn btn-primary">Jogar <i
+                                            class="fa fa-fw fa-soccer-ball-o position-right"></i></a>
                             </div>
                         </div>
                     </div>
