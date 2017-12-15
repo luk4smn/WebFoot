@@ -34,12 +34,6 @@
           <li>
             <a href="{{route('meus.jogadores')}}"><i class="fa fa-fw fa-user-circle"></i><span class="nav-link-text">Jogadores</span></a>
           </li>
-          <li>
-            <a href="/estadio"><i class="fa fa-bank"></i><span class="nav-link-text">Estádio</span></a>
-          </li>
-          <li>
-            <a href="/ballance"><i class="fa fa-fw fa-bar-chart"></i><span class="nav-link-text">Ballance</span></a>
-          </li>
         </ul>
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">

@@ -15,5 +15,4 @@ class Estadio extends Entity
         'valor_ingresso',
     ];
 
-
 }
