@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Entities\Mensagem;
 use App\Entities\Time;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -25,5 +26,9 @@ class User extends Authenticatable
 
     public function time(){
         return $this->hasOne(Time::class, 'id','time_id');
+    }
+
+    public function mensagens(){
+        return $this->hasMany(Mensagem::class, 'user_id','id');
     }
 }

@@ -21,7 +21,7 @@
                             </div>
                             <div class="mr-5">Mensagens</div>
                         </div>
-                        <a class="card-footer text-white clearfix small z-1" href="#">
+                        <a class="card-footer text-white clearfix small z-1" href="mensagens">
                             <span class="float-left">View Details</span>
                             <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -53,7 +53,7 @@
                             </div>
                             <div class="mr-5">Comprar Jogadores</div>
                         </div>
-                        <a class="card-footer text-white clearfix small z-1" href="#">
+                        <a class="card-footer text-white clearfix small z-1" href="comprar-jogadores">
                             <span class="float-left">View Details</span>
                             <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -69,7 +69,7 @@
                             </div>
                             <div class="mr-5">Meu Estádio</div>
                         </div>
-                        <a class="card-footer text-white clearfix small z-1" href="#">
+                        <a class="card-footer text-white clearfix small z-1" href="estadio">
                             <span class="float-left">View Details</span>
                             <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -92,7 +92,7 @@
                                     <tr align="center">
                                         <th>Casa</th>
                                         <th></th>
-                                        <th>X</th>
+                                        <th></th>
                                         <th></th>
                                         <th>Fora</th>
                                     </tr>
@@ -102,7 +102,7 @@
                                         <td align="center">{{$mandante->nome}}</td>
                                         <td><a class="navbar-brand" href="{{ URL::asset('/') }}"><img
                                                         src="{{ URL::asset($mandante->escudo) }}" alt=""></a></td>
-                                        <td></td>
+                                        <td>X</td>
                                         <td><a class="navbar-brand" href="{{ URL::asset('/') }}"><img
                                                         src="{{ URL::asset($visitante->escudo) }}" alt=""></a></td>
                                         <td>{{$visitante->nome}}</td>
