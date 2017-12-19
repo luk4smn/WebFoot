@@ -33,7 +33,12 @@ class PartidasController extends Controller
 
 
     public function jogar($id){
-        dd($id);
+//        $rodada = $this->model->where('placar_mandante',null)->limit(10)->get();
+       $jogo = $this->model->findOrFail($id);
+
+       $jogo->time_visitante_id = auth()->user()->time_id ? :
+
+       dd($jogo);
     }
 
 }
