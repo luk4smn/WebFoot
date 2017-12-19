@@ -42,6 +42,12 @@ class HomeController extends Controller
 
         auth()->user()->time_id = $request->radio['time_id'];
 
+        $time_escolhido = Time::findOrFail($request->radio['time_id']);
+
+        $time_escolhido->user_id = auth()->user()->id;
+
+        $time_escolhido->save();
+
         auth()->user()->save();
 
         return redirect()->to('/');
