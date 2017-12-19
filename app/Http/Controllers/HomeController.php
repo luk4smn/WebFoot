@@ -17,7 +17,7 @@ class HomeController extends Controller
     public function index(){
 
         if(auth()->user()->time_id == null){
-            $times = Time::get();
+            $times = Time::where('user_id', null)->get();
 
             return view('time.selectTeam', compact('times'));
         }
