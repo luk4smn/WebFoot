@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 
 use App\Entities\Partida;
+use Symfony\Component\HttpFoundation\Request;
 
 class PartidasController extends Controller
 {
@@ -32,13 +33,15 @@ class PartidasController extends Controller
     }
 
 
-    public function jogar($id){
-//        $rodada = $this->model->where('placar_mandante',null)->limit(10)->get();
-       $jogo = $this->model->findOrFail($id);
+    public function jogar(Request $request){
+//      $rodada = $this->model->where('placar_mandante',null)->limit(10)->get();
 
-       $jogo->time_visitante_id = auth()->user()->time_id ? :
+        $jogo = $this->model->findOrFail($request['partida_id']);
 
-       dd($jogo);
+//        $jogo->time_visitante_id = auth()->user()->time_id ? :
+
+        return view('jogo.escalacao');
+
     }
 
 }
