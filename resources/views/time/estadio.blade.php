@@ -49,7 +49,7 @@
                     </div>
                     <div class="text-left">
                         <button type="submit" class="btn btn-primary">Alterar <i
-                                    class="icon-arrow-right14 position-right"></i></button>
+                                    class="fa fa-arrow-circle-o-left"></i></button>
                     </div>
 
                 </div>

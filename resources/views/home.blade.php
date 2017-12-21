@@ -4,6 +4,15 @@
    <br>
     <div class="content-wrapper">
         <div class="container-fluid">
+            @if (Session::has('mensagem'))
+                <div class="alert alert-danger">{{ Session::get('mensagem') }}</div>
+            @endif
+
+            @if($errors->count() > 0)
+                <div class="alert alert-danger">
+                    {{ HTML::ul($errors->all()) }}
+                </div>
+            @endif
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
@@ -92,9 +101,9 @@
                                     <thead>
                                     <tr align="center">
                                         <th>Casa</th>
+                                        <th>Rating ATK {{$mandante->getRatingAtk()}} - DEF {{$mandante->getRatingDef()}}</th>
                                         <th></th>
-                                        <th></th>
-                                        <th></th>
+                                        <th>Rating ATK {{$visitante->getRatingAtk()}} - DEF {{$visitante->getRatingDef()}}</th>
                                         <th>Fora</th>
                                     </tr>
                                     </thead>

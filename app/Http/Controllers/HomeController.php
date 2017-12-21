@@ -22,11 +22,14 @@ class HomeController extends Controller
             return view('time.selectTeam', compact('times'));
         }
 
-        $proximo_jogo = Partida::where('time_mandante_id',auth()->user()->time_id)
+        $proximo_jogo = Partida::where('partidas.placar_mandante','=', null)
+            ->where('time_mandante_id',auth()->user()->time_id)
             ->orWhere('time_visitante_id',auth()->user()->time_id)
-            ->where('placar_mandante',null)
+            ->where('partidas.placar_mandante','=', null)
             ->orderBy('partidas.id')
+            ->get()
             ->first();
+
 
         $mandante = Time::findOrFail($proximo_jogo->time_mandante_id);
         $visitante = Time::findOrFail($proximo_jogo->time_visitante_id);
