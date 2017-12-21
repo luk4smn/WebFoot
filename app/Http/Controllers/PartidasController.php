@@ -113,9 +113,7 @@ class PartidasController extends Controller
 
             $resultados = $this->model->setRodadaResults($request['jogo_id']);
 
-            $resultados->toArray();
-
-            return redirect()->to(route('rodada-results',['meu_resultado_id' => $request['jogo_id']]));
+            return redirect()->to(route('rodada-results',['meu_jogo' => $request['jogo_id']]));
 
         }
         else{
@@ -125,9 +123,9 @@ class PartidasController extends Controller
     }
 
     public function resultadosRodada(Request $request){
-        $meu_resultado = $this->model->findOrFail($request['meu_resultado_id']);
+        $meu_resultado = $this->model->findOrFail($request['meu_jogo']);
 
-        $resultados = $this->model->setRodadaResults($request['meu_resultado_id']);
+        $resultados = $this->model->where('placar_mandante' ,'!=', null)->where('id', '!=', $meu_resultado->id)->orderBy('id','desc')->limit(9)->get();
 
         return view('campeonato.resultado_rodada' ,compact('meu_resultado', 'resultados'));
     }

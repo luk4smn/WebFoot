@@ -93,7 +93,7 @@
                     <div class="card mb-3">
                         <div class="card-header">
                             <i class="fa fa-table"></i> Proxima Partida :
-                        <div align="center" style="color: #005cbf; font-weight: bold;">Estádio: {{$mandante->estadio->nome}}</div>
+                        <div align="center" style="color: #005cbf; font-weight: bold;">Estádio: {{$mandante->estadio->nome ?? ''}}</div>
                         </div>
                         <div class="card-body" style="width:100%;padding:8px;background:url('img/campo.png')">
                             <div class="table-responsive">
@@ -101,26 +101,26 @@
                                     <thead>
                                     <tr align="center">
                                         <th>Casa</th>
-                                        <th>Rating ATK {{$mandante->getRatingAtk()}} - DEF {{$mandante->getRatingDef()}}</th>
+                                        <th>Rating ATK {{$mandante->getRatingAtk() ?? ''}} - DEF {{$mandante->getRatingDef() ?? ''}}</th>
                                         <th></th>
-                                        <th>Rating ATK {{$visitante->getRatingAtk()}} - DEF {{$visitante->getRatingDef()}}</th>
+                                        <th>Rating ATK {{$visitante->getRatingAtk() ?? ''}} - DEF {{$visitante->getRatingDef() ?? ''}}</th>
                                         <th>Fora</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr align="center">
-                                        <td align="center">{{$mandante->nome}}</td>
+                                        <td align="center">{{$mandante->nome ?? ''}}</td>
                                         <td><a class="navbar-brand" href="{{ URL::asset('/') }}"><img
-                                                        src="{{ URL::asset($mandante->escudo) }}" alt=""></a></td>
+                                                        src="{{ URL::asset($mandante->escudo ?? '') }}" alt=""></a></td>
                                         <td>X</td>
                                         <td><a class="navbar-brand" href="{{ URL::asset('/') }}"><img
-                                                        src="{{ URL::asset($visitante->escudo) }}" alt=""></a></td>
+                                                        src="{{ URL::asset($visitante->escudo ?? '') }}" alt=""></a></td>
                                         <td>{{$visitante->nome}}</td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="text-right">
-                                <a   href="{{route('jogar',['partida_id' => $proximo_jogo->id])}}"  class="btn btn-primary">Jogar <i
+                                <a   href="{{route('jogar',['partida_id' => $proximo_jogo->id  ?? ''])}}"  class="btn btn-primary">Jogar <i
                                             class="fa fa-fw fa-soccer-ball-o position-right"></i></a>
                             </div>
                         </div>
@@ -139,13 +139,13 @@
                                     <canvas id="myBarChart" width="100" height="50"></canvas>
                                 </div>
                                 <div class="col-sm-4 text-center my-auto">
-                                    <div class="h4 mb-0 text-primary">R$ {{\App\Support\Convert::decimalToMoney(auth()->user()->time->caixa)}}</div>
+                                    <div class="h4 mb-0 text-primary">R$ {{\App\Support\Convert::decimalToMoney(auth()->user()->time->caixa ?? '')}}</div>
                                     <div class="small text-muted">Dinheiro em Caixa</div>
                                     <hr>
-                                    <div class="h4 mb-0 text-warning">R$ {{\App\Support\Convert::decimalToMoney(auth()->user()->time->getSalariosJogadores())}}</div>
+                                    <div class="h4 mb-0 text-warning">R$ {{\App\Support\Convert::decimalToMoney(auth()->user()->time->getSalariosJogadores() ?? '')}}</div>
                                     <div class="small text-muted">Despesas com Salários</div>
                                     <hr>
-                                    <div class="h4 mb-0 text-success">R$ {{\App\Support\Convert::decimalToMoney(auth()->user()->time->setBallance())}}</div>
+                                    <div class="h4 mb-0 text-success">R$ {{\App\Support\Convert::decimalToMoney(auth()->user()->time->setBallance() ?? '')}}</div>
                                     <div class="small text-muted">Balanço Financeiro</div>
                                 </div>
                             </div>
