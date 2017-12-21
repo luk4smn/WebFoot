@@ -28,21 +28,21 @@ class JogadoresTimeSeeder extends Seeder
                 $defensores[$key]->save();
             }
 
-            for ($i=0; $i < 4 ; $i++){
+            for ($i=0; $i < 7 ; $i++){
                 $key = rand(1,200);
                 $goleiros[$key]->time_id = $time->id;
 
                 $goleiros[$key]->save();
             }
 
-            for ($i=0; $i < 4 ; $i++){
+            for ($i=0; $i < 7 ; $i++){
                 $key = rand(1,200);
                 $meias[$key]->time_id = $time->id;
 
                 $meias[$key]->save();
             }
 
-            for ($i=0; $i < 4 ; $i++){
+            for ($i=0; $i < 6 ; $i++){
                 $key = rand(1,200);
                 $atacantes[$key]->time_id = $time->id;
 

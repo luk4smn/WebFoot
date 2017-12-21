@@ -16,7 +16,11 @@ class ClassificacaoController extends Controller
 
 
     public function index(){
-        $classificacao = $this->model->orderBy('pontuacao','desc')->get();
+        $classificacao = $this->model->orderBy('pontuacao','desc')
+            ->orderBy('vitorias','desc')
+            ->orderBy('empates','desc')
+            ->orderBy('derrotas','asc')
+            ->get();
 
         return view('campeonato.classificacao', compact('classificacao'));
     }

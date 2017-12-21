@@ -12,8 +12,15 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/'], function () {
     Route::post('/team/selected', 'HomeController@setMyTeam');
 
     Route::get('/partidas', 'PartidasController@indexMeuTime')->name('minhas.proximas.partidas');
-    Route::get('/jogar', 'PartidasController@jogar')->name('jogar');
 
+
+    Route::group(['prefix' => 'jogar'], function () {
+        Route::get('/', 'PartidasController@jogar')->name('jogar');
+    });
+
+    Route::get('/resultados', 'PartidasController@resultados');
+
+    Route::get('/resultados-rodada', 'PartidasController@resultadosRodada')->name('rodada-results');
 
     Route::group(['prefix' => 'classificacao'], function () {
         Route::get('/', 'ClassificacaoController@index')->name('classificacao');

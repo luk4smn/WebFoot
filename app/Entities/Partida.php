@@ -6,6 +6,7 @@ namespace App\Entities;
 
 class Partida extends Entity
 {
+
     protected $table = "partidas";
 
     protected $fillable = [
@@ -92,6 +93,128 @@ class Partida extends Entity
                 'time_visitante_id' => $partida->time_mandante_id,
             ]);
         }
-
     }
+
+    public function setRodadaResults($id){
+        $rodada = $this->where('placar_mandante',null)->where('id', '!=', $id)->limit(9)->get();
+
+        foreach ($rodada as $key => $partida){
+            $placar_machine1 = 0; $placar_machine2 = 0;
+
+            if($partida->mandante->getRatingAtk() > $partida->visitante->getRatingDef()){
+                $placar_machine1 = rand(0,10);
+            }else{
+                $placar_machine1 = rand(0,5);
+            }
+            if($partida->visitante->getRatingAtk() > $partida->mandante->getRatingDef()){
+                $placar_machine2 = rand(0,10);
+            }else{
+                $placar_machine2 = rand(0,5);
+            }
+
+            $partida->update([
+                'placar_mandante' => $placar_machine1,
+                'placar_visitante' => $placar_machine2
+            ]);
+
+            if($partida->placar_mandante > $partida->placar_visitante){     //vitoria do mandante
+                $partida->mandante->classificacao->vitorias += 1;
+                $partida->visitante->classificacao->derrotas += 1;
+
+                $partida->mandante->classificacao->pontuacao += 3;
+
+                $partida->mandante->classificacao->save();
+                $partida->visitante->classificacao->save();
+
+            }
+            elseif($partida->placar_mandante == $partida->placar_visitante){ // empate
+                $partida->mandante->classificacao->empates += 1;
+                $partida->visitante->classificacao->empates += 1;
+
+                $partida->mandante->classificacao->pontuacao += 1;
+                $partida->visitante->classificacao->pontuacao += 1;
+
+                $partida->mandante->classificacao->save();
+                $partida->visitante->classificacao->save();
+            }
+            else{                                                           // vitoria do visitante
+                $partida->mandante->classificacao->derrotas += 1;
+                $partida->visitante->classificacao->vitorias += 1;
+
+                $partida->visitante->classificacao->pontuacao += 3;
+
+                $partida->mandante->classificacao->save();
+                $partida->visitante->classificacao->save();
+            }
+        }
+        $this->resultados = $rodada;
+        return $rodada;
+    }
+
+    public function setMyResult($partida, $myAtk , $myDef, $adversarioAtk, $adversarioDef){
+
+        $placar_mandante = 0; $placar_visitante = 0;
+
+        if($partida->time_mandante_id == auth()->user()->time_id){ // sou mandante ?
+            if($myAtk > $adversarioDef){
+                $placar_mandante = rand(0,10);
+            }else{
+                $placar_mandante = rand(0,5);
+            }
+            if($adversarioAtk > $myDef){
+                $placar_visitante = rand(0,10);
+            }else{
+                $placar_visitante = rand(0,5);
+            }
+        }else{                                                  //sou visitante
+            if($myAtk > $adversarioDef){
+                $placar_visitante = rand(0,10);
+            }else{
+                $placar_visitante = rand(0,5);
+            }
+            if($adversarioAtk > $myDef){
+                $placar_mandante = rand(0,10);
+            }else{
+                $placar_mandante = rand(0,5);
+            }
+        }
+
+        $partida->update([
+            'placar_mandante' => $placar_mandante,
+            'placar_visitante' => $placar_visitante
+        ]);
+
+        if($partida->placar_mandante > $partida->placar_visitante){     //vitoria do mandante
+            $partida->mandante->classificacao->vitorias += 1;
+            $partida->visitante->classificacao->derrotas += 1;
+
+            $partida->mandante->classificacao->pontuacao += 3;
+
+            $partida->mandante->classificacao->save();
+            $partida->visitante->classificacao->save();
+
+        }
+        elseif($partida->placar_mandante == $partida->placar_visitante){ // empate
+            $partida->mandante->classificacao->empates += 1;
+            $partida->visitante->classificacao->empates += 1;
+
+            $partida->mandante->classificacao->pontuacao += 1;
+            $partida->visitante->classificacao->pontuacao += 1;
+
+            $partida->mandante->classificacao->save();
+            $partida->visitante->classificacao->save();
+        }
+        else{                                                           // vitoria do visitante
+            $partida->mandante->classificacao->derrotas += 1;
+            $partida->visitante->classificacao->vitorias += 1;
+
+            $partida->visitante->classificacao->pontuacao += 3;
+
+            $partida->mandante->classificacao->save();
+            $partida->visitante->classificacao->save();
+        }
+
+        return $partida;
+    }
+
 }
