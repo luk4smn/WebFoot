@@ -64,7 +64,7 @@
 
 
                             <div class="text-right">
-                                <button type="submit" class="btn btn-primary">Alterar <i
+                                <button type="submit" class="btn btn-primary">Submeter <i
                                             class="fa fa-arrow-circle-o-right"></i></button>
                             </div>
 

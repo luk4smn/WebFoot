@@ -122,8 +122,11 @@ class Partida extends Entity
                 $partida->visitante->classificacao->derrotas += 1;
 
                 $partida->mandante->classificacao->pontuacao += 3;
+                $partida->mandante->caixa += $partida->mandante->campeonato->premio_vitoria;      //recebo dinheiro em caixa pela vitoria
 
-                $partida->mandante->classificacao->save();
+                $partida->mandante->save();                                             //salvo meu caixa atualizado
+
+                $partida->mandante->classificacao->save();                              //atualizo a classificacao
                 $partida->visitante->classificacao->save();
 
             }
@@ -134,6 +137,12 @@ class Partida extends Entity
                 $partida->mandante->classificacao->pontuacao += 1;
                 $partida->visitante->classificacao->pontuacao += 1;
 
+                $partida->mandante->caixa += $partida->mandante->campeonato->premio_empate;      //recebo dinheiro em caixa pelo empate
+                $partida->visitante->caixa += $partida->visitante->campeonato->premio_empate;
+
+                $partida->mandante->save();                                             //salvo meu caixa atualizado
+                $partida->visitante->save();
+
                 $partida->mandante->classificacao->save();
                 $partida->visitante->classificacao->save();
             }
@@ -142,6 +151,9 @@ class Partida extends Entity
                 $partida->visitante->classificacao->vitorias += 1;
 
                 $partida->visitante->classificacao->pontuacao += 3;
+                $partida->visitante->caixa += $partida->visitante->campeonato->premio_vitoria;      //recebo dinheiro em caixa pela vitoria
+
+                $partida->visitante->save();                                             //salvo meu caixa atualizado
 
                 $partida->mandante->classificacao->save();
                 $partida->visitante->classificacao->save();
@@ -189,6 +201,9 @@ class Partida extends Entity
             $partida->visitante->classificacao->derrotas += 1;
 
             $partida->mandante->classificacao->pontuacao += 3;
+            $partida->mandante->caixa += $partida->mandante->campeonato->premio_vitoria;
+
+            $partida->mandante->save();
 
             $partida->mandante->classificacao->save();
             $partida->visitante->classificacao->save();
@@ -201,6 +216,12 @@ class Partida extends Entity
             $partida->mandante->classificacao->pontuacao += 1;
             $partida->visitante->classificacao->pontuacao += 1;
 
+            $partida->mandante->caixa += $partida->mandante->campeonato->premio_empate;
+            $partida->visitante->caixa += $partida->visitante->campeonato->premio_empate;
+
+            $partida->mandante->save();
+            $partida->visitante->save();
+
             $partida->mandante->classificacao->save();
             $partida->visitante->classificacao->save();
         }
@@ -209,6 +230,10 @@ class Partida extends Entity
             $partida->visitante->classificacao->vitorias += 1;
 
             $partida->visitante->classificacao->pontuacao += 3;
+
+            $partida->visitante->caixa += $partida->visitante->campeonato->premio_vitoria;
+
+            $partida->visitante->save();
 
             $partida->mandante->classificacao->save();
             $partida->visitante->classificacao->save();
