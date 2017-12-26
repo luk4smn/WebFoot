@@ -55,11 +55,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="text-right">
-                                <button type="submit" class="btn btn-primary">Selecionar <i
-                                            class="icon-arrow-right14 position-right"></i></button>
-                            </div>
-
                         </div>
                         <div class="card-footer small text-muted">Atualizado em {{date('d/m/Y')}}</div>
                     </div>
