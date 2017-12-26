@@ -28,11 +28,19 @@ class HomeController extends Controller
             ->where('partidas.placar_mandante','=', null)
             ->orderBy('partidas.id')
             ->get()
-            ->first();
+            ->first() ?? '';
 
+        $mandante = '';
+        $visitante = '';
 
-        $mandante = Time::findOrFail($proximo_jogo->time_mandante_id);
-        $visitante = Time::findOrFail($proximo_jogo->time_visitante_id);
+        if($proximo_jogo != ''){
+            $mandante = Time::findOrFail($proximo_jogo->time_mandante_id) ?? '';
+            $visitante = Time::findOrFail($proximo_jogo->time_visitante_id) ?? '';
+        }else{
+            $partidaModel = new Partida();
+            $partidas_fantantes = Partida::where('partidas.placar_mandante','=', null)->get();
+            $partidaModel->setPartidasFaltantesResults($partidas_fantantes); //caso fique alguma partida sem resultado por conta de erro esse metodo resolve o problema
+        }
 
         return view('home',compact('proximo_jogo','mandante','visitante'));
     }
