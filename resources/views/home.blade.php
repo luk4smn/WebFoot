@@ -88,9 +88,12 @@
                 </div>
             </div>
             <!-- Area Chart Example-->
+
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card mb-3">
+                        @if($proximo_jogo != '')
                         <div class="card-header">
                             <i class="fa fa-table"></i> Proxima Partida :
                         <div align="center" style="color: #005cbf; font-weight: bold;">Estádio: {{$mandante->estadio->nome ?? ''}}</div>
@@ -117,6 +120,7 @@
                                                         src="{{ URL::asset($visitante->escudo ?? '') }}" alt=""></a></td>
                                         <td>{{$visitante->nome}}</td>
                                     </tr>
+                                    </tbody>
                                 </table>
                             </div>
                             <div class="text-right">
@@ -124,7 +128,30 @@
                                             class="fa fa-fw fa-soccer-ball-o position-right"></i></a>
                             </div>
                         </div>
+
+                        @else
+                            <div class="card-body" style="width:100%;padding:8px;background:url('img/campo.png')">
+                                <div class="table-responsive">
+                                    <table class="table table-dark" width="100%" cellspacing="0">
+                                        <thead>
+                                        <tr align="center">
+                                            <th>Fim de Campeonato</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <td align="center">
+                                            Parabéns pelo seu desempenho, seu time obteve grandes resultados !
+                                        </td>
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+
+                        @endif
                     </div>
+
 
                     <input type="hidden" id="vitorias" value="{{auth()->user()->time->classificacao->vitorias}}">
                     <input type="hidden" id="empates" value="{{auth()->user()->time->classificacao->empates}}">

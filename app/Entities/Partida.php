@@ -95,6 +95,71 @@ class Partida extends Entity
         }
     }
 
+    public function setPartidasFaltantesResults($rodada){
+        foreach ($rodada as $key => $partida){
+            $placar_machine1 = 0; $placar_machine2 = 0;
+
+            if($partida->mandante->getRatingAtk() > $partida->visitante->getRatingDef()){
+                $placar_machine1 = rand(0,10);
+            }else{
+                $placar_machine1 = rand(0,5);
+            }
+            if($partida->visitante->getRatingAtk() > $partida->mandante->getRatingDef()){
+                $placar_machine2 = rand(0,10);
+            }else{
+                $placar_machine2 = rand(0,5);
+            }
+
+            $partida->update([
+                'placar_mandante' => $placar_machine1,
+                'placar_visitante' => $placar_machine2
+            ]);
+
+            if($partida->placar_mandante > $partida->placar_visitante){     //vitoria do mandante
+                $partida->mandante->classificacao->vitorias += 1;
+                $partida->visitante->classificacao->derrotas += 1;
+
+                $partida->mandante->classificacao->pontuacao += 3;
+                $partida->mandante->caixa += $partida->mandante->campeonato->premio_vitoria;      //recebo dinheiro em caixa pela vitoria
+
+                $partida->mandante->save();                                             //salvo meu caixa atualizado
+
+                $partida->mandante->classificacao->save();                              //atualizo a classificacao
+                $partida->visitante->classificacao->save();
+
+            }
+            elseif($partida->placar_mandante == $partida->placar_visitante){ // empate
+                $partida->mandante->classificacao->empates += 1;
+                $partida->visitante->classificacao->empates += 1;
+
+                $partida->mandante->classificacao->pontuacao += 1;
+                $partida->visitante->classificacao->pontuacao += 1;
+
+                $partida->mandante->caixa += $partida->mandante->campeonato->premio_empate;      //recebo dinheiro em caixa pelo empate
+                $partida->visitante->caixa += $partida->visitante->campeonato->premio_empate;
+
+                $partida->mandante->save();                                             //salvo meu caixa atualizado
+                $partida->visitante->save();
+
+                $partida->mandante->classificacao->save();
+                $partida->visitante->classificacao->save();
+            }
+            else{                                                           // vitoria do visitante
+                $partida->mandante->classificacao->derrotas += 1;
+                $partida->visitante->classificacao->vitorias += 1;
+
+                $partida->visitante->classificacao->pontuacao += 3;
+                $partida->visitante->caixa += $partida->visitante->campeonato->premio_vitoria;      //recebo dinheiro em caixa pela vitoria
+
+                $partida->visitante->save();                                             //salvo meu caixa atualizado
+
+                $partida->mandante->classificacao->save();
+                $partida->visitante->classificacao->save();
+            }
+        }
+    }
+
+
     public function setRodadaResults($id){
         $rodada = $this->where('placar_mandante',null)->where('id', '!=', $id)->limit(9)->get();
 
