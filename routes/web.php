@@ -10,6 +10,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/'], function () {
 
 
     Route::post('/team/selected', 'HomeController@setMyTeam');
+    Route::get('/reset/all-parameters/all-games', 'HomeController@resetChampioship')->name('reset');
 
     Route::get('/partidas', 'PartidasController@indexMeuTime')->name('minhas.proximas.partidas');
 

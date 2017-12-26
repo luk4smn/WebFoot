@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Classificacao;
+use App\Entities\Mensagem;
 use App\Entities\Partida;
 use App\Entities\Time;
 use Illuminate\Http\Request;
@@ -59,6 +61,37 @@ class HomeController extends Controller
 
         $time_escolhido->save();
 
+        auth()->user()->save();
+
+        return redirect()->to('/');
+    }
+
+    public function resetChampioship(){
+        $rodadas = Partida::all();
+        $classificacao = Classificacao::all();
+        $mensagens = Mensagem::all();
+
+        foreach($rodadas as $key => $partida){
+            $partida->placar_mandante = null;
+            $partida->placar_visitante = null;
+            $partida->save();
+        }
+
+        foreach($classificacao as $key => $time){
+            $time->vitorias = 0;
+            $time->empates = 0;
+            $time->derrotas = 0;
+            $time->pontuacao = 0;
+            $time->save();
+        }
+
+        foreach($mensagens as $key => $mensagem){
+            $mensagem->delete();
+        }
+
+        auth()->user()->time->user_id = null;
+        auth()->user()->time->save();
+        auth()->user()->time_id = null;
         auth()->user()->save();
 
         return redirect()->to('/');

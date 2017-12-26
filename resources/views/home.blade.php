@@ -142,10 +142,12 @@
                                         <td align="center">
                                             Parabéns pelo seu desempenho, seu time obteve grandes resultados !
                                         </td>
-
                                         </tbody>
-
                                     </table>
+                                    <div class="text-right">
+                                        <a   href="{{route('reset')}}"  class="btn btn-primary">Jogar um novo campeonato <i
+                                                    class="fa fa-fw fa-soccer-ball-o position-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
 
